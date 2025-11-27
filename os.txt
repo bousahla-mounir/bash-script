@@ -1,3 +1,4 @@
+Salam alikom
 PRETTY_NAME="Ubuntu 24.04.3 LTS"
 NAME="Ubuntu"
 VERSION_ID="24.04"
