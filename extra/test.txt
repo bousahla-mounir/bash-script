@@ -1,0 +1,10 @@
+total 52
+drwxrwxr-x 5 bmounir bmounir  4096 Nov 27 17:43 .
+drwxrwxr-x 3 bmounir bmounir  4096 Nov 27 15:22 ..
+-rw-rw-r-- 1 bmounir bmounir  3512 Nov 27 17:40 cpu.txt
+drwxrwxr-x 2 bmounir bmounir  4096 Nov 27 17:43 extra
+drwxrwxr-x 8 bmounir bmounir  4096 Nov 27 17:41 .git
+-rw-rw-r-- 1 bmounir bmounir    32 Nov 27 15:39 .gitignore
+drwxrwxr-x 2 bmounir bmounir  4096 Nov 27 15:54 .idea
+-rw-rw-r-- 1 bmounir bmounir   413 Nov 27 17:34 os.txt
+-rw-rw-r-- 1 bmounir bmounir 16521 Nov 27 15:22 usr_bin.txt
