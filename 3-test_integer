@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# test-integer: evaluate the value of an integer
+
+NUMBER=-18
+
+if [ -z "$NUMBER" ];then
+	echo "$NUMBER is an empty" >&2
+	exit 1
+fi
+
+if [ "$NUMBER" -eq 0 ];then
+	echo "$NUMBER is ZERO"
+else
+	if [ "$NUMBER" -gt 0 ];then
+		echo "$NUMBER is positive"
+	else
+		echo "$NUMBER is negative"
+	fi
+	
+	if [ $((NUMBER % 2)) -eq 0 ];then
+		echo "$NUMBER is EVEN"
+	else
+		echo "$NUMBER is ODD"
+	fi
+fi
+
+exit
