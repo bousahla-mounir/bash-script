@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# read-integer: read a number submitted by the user
+
+echo -n "Please enter an integer -> "
+read NUMBER
+
+if [[ "$NUMBER" =~ ^-?[0-9]+$ ]];then
+	if [ "$NUMBER" -eq 0 ];then
+		echo "$NUMBER is equal to ZERO"
+	else
+		if (((NUMBER % 2) == 0));then
+			echo "$NUMBER is Even"
+		else
+			echo "$NUMBER is ODD"
+		fi
+
+		if ((NUMBER > 0));then
+			echo "$NUMBER is POSITIVE"
+		else
+			echo "$NUMBER is NEGATIVE"
+		fi
+	fi
+else
+	echo "$NUMBER is not an Integer." >&2
+	exit 1
+fi
+
+exit
