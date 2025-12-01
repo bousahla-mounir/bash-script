@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# test-integer: evaluate integer version 2
+
+NUMBER=-100
+
+if [[ "$NUMBER" =~ ^-?[0-9]+$ ]];then
+	if [ "$NUMBER" -eq 0 ];then
+		echo "$NUMBER is equal to ZERO"
+	else
+		if [ "$NUMBER" -lt 0 ];then
+			echo "$NUMBER is Negative"
+		else
+			echo "$NUMBER is Positive"
+		fi
+
+		if [ $((NUMBER % 2)) -ne 0 ];then
+			echo "$NUMBER is ODD"
+		else
+			echo "$NUMBER is EVEN"
+		fi
+	fi	
+else
+	echo "$NUMBER is not an Integer" >&2
+	exit 1
+fi
+
+exit
