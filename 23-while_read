@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# using read inside a while to display the content of a File
+
+
+while read fname lname address;do
+	printf "FNAME: %s\tLNAME: %s\tADDRESS: %s\n"\
+		"$fname"\
+		"$lname"\
+		"$address"
+done < "./contact.txt"
