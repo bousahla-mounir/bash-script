@@ -1,0 +1,55 @@
+#!/bin/bash
+
+# Another way to make choosen menu
+
+delay=3
+
+while true;do
+	clear
+	cat <<- 4EOF
+		Please select:
+			1. Display system information
+			2. Display Disk Space Information
+        		3. Display Home Space Utilization
+			0. Quit
+	4EOF
+
+	read -e -p "Enter Selection in [0-3] -> " NUMBER
+
+	if [[ "$NUMBER" =~ ^[0-3]$ ]];then
+		if [[ "$NUMBER" == 1 ]];then
+                	echo "Hostname: $HOSTNAME"
+			uptime
+			read -p "Tap Enter so i can move on !!! "
+        	fi
+
+		if [[ "$NUMBER" == 2 ]];then
+                	echo "Hostname: $HOSTNAME"
+                	df -h
+			read -p "Tap Enter so i can move on !!! "
+        	fi
+
+		if [[ "$NUMBER" == 3 ]];then
+			if (("$(id -u)" == 0));then
+				echo "Home Space Utilization for All Users"
+				du -sh /home/*
+			else
+				echo "Home Space Utilization for $USER"
+				du -sh $HOME
+			fi
+			read -p "Tap Enter so i can move on !!! "
+		fi
+
+		if [[ "$NUMBER" == 0 ]];then
+			break
+		fi
+
+	else
+		echo "Invalid entry, please choose number between 0 and 3" >&2
+		read -p "Tap Enter so i can move on !!! "
+        fi
+done
+
+echo "Program terminated. Have a great day !!!"
+
+
