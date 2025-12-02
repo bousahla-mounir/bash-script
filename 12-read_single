@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# read-single: Read single value using REPLY
+
+
+read -p "Enter one or more Values --> "
+echo "REPLAY: $REPLY"
