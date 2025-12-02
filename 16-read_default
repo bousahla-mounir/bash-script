@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# read-default: using the default value if a user enter nothing
+# Enable readline for the input
+
+read -e -p "What is your username -> " -i "$USER" username
+
+echo "You entered : $username"
