@@ -1,0 +1,50 @@
+#!/bin/bash
+
+# Repeat asking user to enter value to execute command from a choosen menu until he quit
+
+delay=3
+
+while [[ "$REPLY" != 0 ]];do
+	clear
+	echo "
+	Please select:
+		1. Display system information
+		2. Display Disk Space Information
+        	3. Display Home Space Utilization	
+		0. Quit
+	"
+	read -e -p "Enter Selection in [0-3] -> "
+
+
+	if [[ "$REPLY" =~ ^[0-3]$ ]];then
+		if [[ "$REPLY" == 1 ]];then
+                	echo "Hostname: $HOSTNAME"
+			uptime
+			sleep "$delay"
+        	fi
+
+		if [[ "$REPLY" == 2 ]];then
+                	echo "Hostname: $HOSTNAME"
+                	df -h
+			sleep "$delay"
+        	fi
+
+		if [[ "$REPLY" == 3 ]];then
+			if (("$(id -u)" == 0));then
+				echo "Home Space Utilization for All Users"
+				du -sh /home/*
+			else
+				echo "Home Space Utilization for $USER"
+				du -sh $HOME
+			fi
+			sleep "$delay"
+		fi
+
+	else
+		echo "Invalid entry, please choose number between 0 and 3" >&2
+		sleep "$delay"
+        fi
+done	
+
+echo "Program terminated. Have a great day !!!"
+
