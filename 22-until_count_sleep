@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# count numbers from range of values using while loop and sleep 
+
+counter=1
+read -e -p "Enter a number -> " -i 5 count
+read -e -p "Enter time to sleep in seconds -> " -i 1 delay
+
+if [[ "$count" =~ ^[0-9]+$ && "$delay" =~ ^[0-9]+$ ]];then
+	until [[ "$counter" -gt $count ]];do
+		echo "$counter"
+		counter=$((counter + 1))
+		sleep $delay
+	done
+else
+	echo "There are not numbers" >&2
+	exit 1
+fi
+
+echo "Program finished"
+exit
