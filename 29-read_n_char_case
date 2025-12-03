@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Read n character using read -n Number
+
+while true;do
+	read -n 2 -p "Enter exactly 2 characters "
+	echo
+
+	case $REPLY in
+		CC|cc)	echo "Program terminated"
+			break
+			;;
+		*)	echo "You entered $REPLY"
+			;;
+	esac
+done
+
+echo "Finished"
+
+
