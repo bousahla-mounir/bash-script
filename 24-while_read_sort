@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Read lines from file using Sort command
+
+sort -k 1,1 -k 2n "./contact.txt" | while read fname lname address;do
+	printf "FNAME: %s\tLNAME: %s\tAddress: %s\n" \
+		"$fname"\
+		"$lname"\
+		"$address"
+done
