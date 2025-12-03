@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Display all positional parameters used in this program
+
+COUNT=1
+
+while [[ "$#" -gt 0 ]];do
+	echo "Argument number $COUNT is $1"
+	COUNT=$((COUNT+1))
+	shift
+done
+
+echo "Program finished"
+
+
