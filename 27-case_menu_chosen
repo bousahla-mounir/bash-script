@@ -1,0 +1,44 @@
+#!/bin/bash
+
+# Rewrite the menu chosen using CASE
+
+while true;do
+	clear
+	echo "
+Please Select:
+	1. Display System Information
+	2. Display Disk Space Information
+	3. Display Users Home Space Utilization
+	0. Quit
+	"
+	read -e -p "Select a number between [0-3] -> " NUMBER
+
+	case "$NUMBER" in
+		1)	echo "Hostname: $HOSTNAME"
+			uptime
+			read -p "click enter to move on "
+			;;
+		2)	echo "Hostname: $HOSTNAME"
+                        df -h
+			read -p "click enter to move on "
+                        ;;
+		3)	echo "Hostname: $HOSTNAME"
+			if (("$(id -u)" == 0));then
+				echo "Home Space Utilization (All Users)"
+				du -sh /home/*
+			else
+				echo "Home Space Utilization ($USER)"
+                                du -sh $HOME
+			fi
+			read -p "click enter to move on "
+                        ;;
+		0)	echo "Program terminated !!!"
+			break
+			;;
+		*)	echo "Try a number between [0-3]"
+			read -p "click enter to move on "
+			;;
+	esac
+done
+echo "Finished"
+
