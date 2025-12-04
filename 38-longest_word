@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Find the longest and the smallest word in a file
+
+
+while [[ -n $1 ]];do
+	if [[ -e $1 && -r $1 ]];then
+		MAX_WORD=
+		MAX_LENGTH=0
+		MIN_WORD=
+                MIN_LENGTH=10000
+		for i in $(strings "$1");do
+			len="$(echo "$i" | wc -c)"
+			if ((len>MAX_LENGTH));then
+				MAX_LENGTH=$len
+				MAX_WORD="$i"
+			fi
+			if ((len<MIN_LENGTH));then
+				MIN_LENGTH=$len
+				MIN_WORD="$i"
+			fi
+		done
+		echo "$1"
+		echo "The longest word is: '$MAX_WORD' with length $MAX_LENGTH"
+		echo "The smallest word is: '$MIN_WORD' with length $MIN_LENGTH"
+		echo
+	else
+		echo "$1 is either not exist or not readable"
+	fi
+	shift
+done
