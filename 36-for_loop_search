@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Search files inside a directory using For Loop
+
+
+for i in ./???read*;do    # search list of files with the name ???read* in the current directory
+       if [ -f "$i" ];then
+	       echo "$i"
+	fi
+done       
+
+
+
+
+
