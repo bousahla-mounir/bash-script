@@ -1,0 +1,24 @@
+#!/bin/bash
+# Display, add items with their key to an array and remove items from it
+
+animals=([55]="wolf" [12]="lion" [15]="tigger" [22]="rabbit" [25]="camel" [30]="donkey" [31]="monkey" [32]="mule")
+
+for i in "${animals[@]}";do echo "$i";done
+for i in "${!animals[*]}";do echo "$i"; done
+echo -e "-----------------------\n"
+
+echo -e "Updated animals array values by adding Deer[17] and Zebra[27]\n"
+animals+=([17]="deer" [27]="zebra")
+
+for i in "${animals[@]}";do echo "$i"; done
+for i in "${!animals[*]}";do echo "$i"; done
+echo -e "-----------------------\n"
+
+echo -e "Delete rabbit[22] from animals array"\n
+unset "animals[22]"
+
+for i in "${animals[@]}";do echo "$i"; done
+for i in "${!animals[*]}";do echo "$i"; done
+echo -e "-----------------------\n"
+
+
