@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Simple demonstration of trap with SIGINT SIGTERM Version 2
+
+trap exit_on_signal_SIGINT SIGINT
+trap exit_on_signal_SIGTERM SIGTERM
+
+MAX=12
+delay=5
+
+exit_on_signal_SIGINT(){
+	echo "Signal Interrupted ." 2>&1
+	exit 0
+}
+
+exit_on_signal_SIGTERM(){
+	echo "Signal Terminated ." 2>&1
+	exit 0
+}
+
+for ((i=1;i<=MAX;i++));do
+	echo "Iteration $i of $MAX"
+	sleep $delay
+done
+
+
+
+

@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Simple demonstration of trap with SIGINT SIGTERM
+
+trap "echo 'I am ignoring you until i finish the loop, go fly a kite.'" SIGINT SIGTERM
+MAX=12
+delay=5
+
+for ((i=1;i<=MAX;i++));do
+	echo "Iteration $i of $MAX"
+	sleep $delay
+done
+
+
+
+
