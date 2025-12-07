@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# Asynchronous Loop
+
+run_task(){
+	echo "Task $1 started"
+	sleep_time=$((RANDOM %5 + 1))
+	sleep $sleep_time
+	if ((sleep_time % 2 == 0));then
+		echo "Task $1 is EVEN"
+		return 1
+	else
+		echo "Task $1 is ODD"
+		return 0
+	fi
+}
+
+declare -A pids=()
+
+for i in {1..5};do
+	run_task $i &
+	pids+=([$i]=$!)
+done
+
+for i in "${!pids[@]}";do
+	wait ${pids[$i]}
+	status=$?
+	echo "Process ${pids[$i]} of Task $i exited with status $status"
+done

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Asynchronous execution demo (Child)
+
+echo "Child: child is running ..."
+sleep 6
+echo "Child: child is done, exiting"
