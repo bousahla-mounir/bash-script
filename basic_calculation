@@ -1,0 +1,9 @@
+#!/bin/bash
+
+bc <<- 5EOF
+	p=6
+	o=4
+	sum=((p+o)^2+(p-o)^2)+(p*(o-2))
+	print "The result is ", sum, "\n"
+5EOF
+

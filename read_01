@@ -1,0 +1,27 @@
+#!/bin/bash
+
+line=""
+
+while [[ -z "$line" ]];do
+	read -e -p "Enter a username to look fo -> " -i $USER username
+	line="$(grep -iE "$username:" /etc/passwd)"
+	[ -z "$line" ] && echo "$username not found" >&2
+done
+
+OLD_IFS="$IFS"
+IFS=":"
+
+read username passwd uid gid info home bash <<< "$line"
+IFS="$OLD_IFS"
+
+cat <<- 5EOF
+	$username 
+	$passwd 
+	$uid 
+	$gid 
+	$info 
+	$home 
+	$bash
+5EOF
+
+

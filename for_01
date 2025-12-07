@@ -1,0 +1,10 @@
+#!/bin/bash
+
+
+(for i in ~/me/bash-scripts-dir/example2/*;do
+	echo "$i"
+	echo "---------------"
+done) | sort
+
+
+

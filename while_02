@@ -1,0 +1,11 @@
+#!/bin/bash
+
+format="%s\t\t\t %s\t\t\t %s\n"
+
+printf "$format" "Fname" "Lname" "Address"
+while read fname lname address;do
+	printf "$format" \
+		"$fname" \
+		"$lname" \
+		"$address" 
+done < "./contact.txt"
